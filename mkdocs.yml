@@ -2,6 +2,7 @@ site_name: OpsMx
 theme:
   name: material
   logo: logo.svg
+  custom_dir: overrides
 
 nav:
     - Home: index.md
@@ -48,6 +49,7 @@ extra:
 
   version:
     provider: mike
+    default: stable
 
   generator: false
 
