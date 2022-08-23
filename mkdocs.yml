@@ -46,10 +46,23 @@ extra:
             Thanks for your feedback! Help us improve this page by
             using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
 
+  version:
+    provider: mike
+
   generator: false
+
   
 copyright: "&copy; 2022 All Rights Reserved <script>document.write</script>"
 
 plugins:
   - search
   - autolinks
+  - mike:
+      # These fields are all optional; the defaults are as below...
+      alias_type: symlink
+      redirect_template: null
+      deploy_prefix: ''
+      canonical_version: null
+      version_selector: true
+      css_dir: css
+      javascript_dir: js
