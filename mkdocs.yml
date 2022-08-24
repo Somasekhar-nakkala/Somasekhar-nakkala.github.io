@@ -1,8 +1,15 @@
-site_name: OpsMx
+extra_css:
+- assets/versions.css
+extra_javascript:
+- assets/versions.js
+
+site_name: OpsMx ISD Documentation
 theme:
   name: material
   logo: logo.svg
-  custom_dir: overrides
+  palette:
+    primary: cyan
+    accent: cyan
 
 nav:
     - Home: index.md
@@ -14,8 +21,6 @@ nav:
           - Installing Autopilot: Installing Autopilot.md 
           - Autopilot Installation Steps.md
           - Observability.md
-          - Application Dashboard:
-             - Application Dashboard.md
 
 extra:
   social:
@@ -49,7 +54,6 @@ extra:
 
   version:
     provider: mike
-    default: stable
 
   generator: false
 
@@ -68,3 +72,5 @@ plugins:
       version_selector: true
       css_dir: css
       javascript_dir: js
+
+repo_url: https://github.com/Somasekhar-nakkala/Somasekhar-nakkala.github.io
