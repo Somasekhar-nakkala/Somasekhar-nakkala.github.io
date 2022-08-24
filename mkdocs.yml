@@ -21,6 +21,8 @@ nav:
           - Installing Autopilot: Installing Autopilot.md 
           - Autopilot Installation Steps.md
           - Observability.md
+          - Application Dashboard:
+             - Application Dashboard.md
 
 extra:
   social:
