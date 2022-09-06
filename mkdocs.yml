@@ -10,19 +10,43 @@ theme:
   palette:
     primary: cyan
     accent: cyan
+  icon:  
+    admonition:
+      note: material/alert-circle-outline
 
 nav:
     - Home: index.md
-    - OpsMx Intelligent Software Delivery Platform: OpsMx Intelligent Software Delivery Platform.md
-    - ISD_Installation_Guide: ISD_Installation_Guide.md
-    - Autopilot:
+    - Overview:
+       - OpsMx Intelligent Software Delivery Platform.md
+       - Overview: Overview.md
+       - Orchestration Module - OpsMx Enterprise for Spinnaker (OES).md
+       - OES Features.md
+       - Automated Workflows.md
+       - Multi-cloud Deployments.md
+       - Safe-Deployment strategies.md
+       - Scalable & Extensible.md
+       - OES Concepts.md
+       - Application Management.md
+       - Application Deployment.md
        - Data and Intelligence Module - Autopilot.md
-       - Installing Autopilot:
-          - Installing Autopilot: Installing Autopilot.md 
-          - Autopilot Installation Steps.md
-          - Observability.md
-          - Application Dashboard:
-             - Application Dashboard.md
+       - Observability.md
+       - Audit and Traceability.md
+       - Continuous Compliance - Policy.md
+    - Getting Started:
+       - ISD Quick Installation.md
+       - Trial User Guide.md
+       - SaaS Trial Usage Instruction Video.md
+    - Operator Manual:
+       - ISD Architecture.md
+       - ISD Deployment Architecture.md
+       - Environment setup for OpsMx ISD.md
+       - ISD On-Prem POV Infrastructure requirements.md
+       - Installation.md
+       - ISD Installation Guide.md
+       - ISD GitOps Installation.md
+       - ISD Installation Configuration.md
+       - Helm Chart based installation.md
+       - ISD Installation on OpenShift.md
 
 extra:
   social:
@@ -76,3 +100,8 @@ plugins:
       javascript_dir: js
 
 repo_url: https://github.com/Somasekhar-nakkala/Somasekhar-nakkala.github.io
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
