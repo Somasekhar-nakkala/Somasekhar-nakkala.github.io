@@ -13,7 +13,7 @@ release, and when it was approved.
 
 ##**Overview**##
 <p align="center">
-  <img height="300" src="/Observability.png">
+  <img src="/Observability.png">
 </p>
 
 ​​Following are the key benefits of the observability feature:

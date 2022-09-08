@@ -5,7 +5,7 @@
 1. This is your ISD Trial Instance's login page. Enter the User ID and Password that you received via email.
 
 	<p align="center">
-  	<img height="300" src="/Login.png">
+  	<img src="/Login.png">
 	</p>
 
 
