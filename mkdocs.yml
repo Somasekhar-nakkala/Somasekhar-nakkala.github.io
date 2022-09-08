@@ -1,11 +1,10 @@
 extra_css:
-- assets/versions.css
-extra_javascript:
-- assets/versions.js
+  - stylesheets/extra.css
 
 site_name: OpsMx ISD Documentation
 theme:
   name: material
+  highlightjs: false
   logo: logo.svg
   palette:
     primary: cyan
@@ -47,7 +46,11 @@ nav:
        - ISD Installation Configuration.md
        - Helm Chart based installation.md
        - ISD Installation on OpenShift.md
-
+       - Autopilot Installation.md
+       - Routing Web URLs to ISD services.md
+       - ISD Service Catalogue.md
+       - ISD - Commonly used Commands.md
+       - Promethues and Kubernetes.md
 extra:
   social:
     - icon: fontawesome/brands/twitter 
@@ -102,6 +105,13 @@ plugins:
 repo_url: https://github.com/Somasekhar-nakkala/Somasekhar-nakkala.github.io
 
 markdown_extensions:
+  - codehilite
   - admonition
   - pymdownx.details
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.highlight
   - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - attr_list
+  - md_in_html

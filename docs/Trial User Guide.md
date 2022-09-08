@@ -4,14 +4,17 @@
 
 1. This is your ISD Trial Instance's login page. Enter the User ID and Password that you received via email.
 
-	![Login](./Login.png)
+	<p align="center">
+  	<img height="300" src="/Login.png">
+	</p>
+
 
 	!!! Note 
             **If you have any issues, please contact us at opsmxsaashelp@opsmx.io.**
 
 2. After you log in you will see the Application Dashboard (refer to the screenshot below).
 
-![Application_Dashboard](./Application_Dashboard.png)
+	![Application_Dashboard](./Application_Dashboard.png)
 
 ##**ISD SaaS Trial Workflow**##
 
@@ -45,7 +48,7 @@ It will redirect you to the "**Pipeline Builder**" page and it displays the pipe
     By default, your application comes with one pipeline called "**K8sdeploydemo**" and two gates, one is an "**Approval**” gate 
 and the other is a “**Policy**” gate.
 
-![Pipeline_Builder](./Pipeline_Builder.png)
+	![Pipeline_Builder](./Pipeline_Builder.png)
 
 !!! Note "**To know more about Application Dashboard, refer [here](https://docs.opsmx.com/products/data-and-intelligence-module-autopilot/observability/application-dashboard), and to know more about Gates, refer [here](https://docs.opsmx.com/quickstart-guide/manage-pipelines/add-intelligent-gates-to-the-pipeline).**"
 

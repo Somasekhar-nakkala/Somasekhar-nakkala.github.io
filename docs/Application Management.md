@@ -40,7 +40,9 @@ A load balancer is always connected with an ingress protocol and port range.
 A firewall is a set of rules defined by an IP address range (CIDR) accompanied by a communication 
 protocol and a port range.
 
-![Application_management](./Application_management.png)
+<p align="center">
+  <img height="300" src="/Application_management.png">
+</p>
 
 Take note of the following in the image above:
 
