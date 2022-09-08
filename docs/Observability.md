@@ -12,9 +12,8 @@ for all software delivery events, including what is getting delivered, who appro
 release, and when it was approved.
 
 ##**Overview**##
-<p align="center">
-  <img src="/Observability.png">
-</p>
+
+![Observability.png](./Observability.png)
 
 ​​Following are the key benefits of the observability feature:
 

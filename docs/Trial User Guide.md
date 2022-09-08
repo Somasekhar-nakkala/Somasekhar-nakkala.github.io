@@ -4,10 +4,7 @@
 
 1. This is your ISD Trial Instance's login page. Enter the User ID and Password that you received via email.
 
-	<p align="center">
-  	<img src="/Login.png">
-	</p>
-
+	![Login](./Login.png)
 
 	!!! Note 
             **If you have any issues, please contact us at opsmxsaashelp@opsmx.io.**
