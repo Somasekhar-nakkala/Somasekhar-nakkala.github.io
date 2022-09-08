@@ -41,7 +41,7 @@ A firewall is a set of rules defined by an IP address range (CIDR) accompanied b
 protocol and a port range.
 
 <p align="center">
-  <img height="300" src="/Application_management.png">
+  <img src="/Application_management.png">
 </p>
 
 Take note of the following in the image above:
