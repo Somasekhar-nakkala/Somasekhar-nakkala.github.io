@@ -52,7 +52,7 @@ Following are the steps to install Autopilot.
 
 1. Download yaml file from the Enterprise Spinnaker repository in the GitHub
 
-	```$ wget [https://raw.githubusercontent.com/OpsMx/enterprise-spinnaker/oes3.10/charts/oes/values-APforOSS.yaml](https://raw.githubusercontent.com/OpsMx/enterprise-spinnaker/oes3.10/charts/oes/values-APforOSS.yaml)```
+	$ wget [https://raw.githubusercontent.com/OpsMx/enterprise-spinnaker/oes3.10/charts/oes/values-APforOSS.yaml](https://raw.githubusercontent.com/OpsMx/enterprise-spinnaker/oes3.10/charts/oes/values-APforOSS.yaml)
 
 2. Update Autopilot UI and Autopilot Gate entries
 
@@ -60,13 +60,13 @@ Following are the steps to install Autopilot.
 
 	```oesUI:```
  
-  		```host: << AUTOPILOT UI URL Example autopilot.opsmx.net >>```
+  	```host: << AUTOPILOT UI URL Example autopilot.opsmx.net >>```
 
 	```#Autopilot Gate URL configuration```
 
 	```oesGate:``` 
 
-  		```host: << AUTOPILOT GATE URL Example autopilot-gate.opsmx.net >>```
+  	```host: << AUTOPILOT GATE URL Example autopilot-gate.opsmx.net >>```
 
 3. Update Spinnaker Deck URL in dashboard section of values-APforOSS.yaml
 
@@ -74,9 +74,9 @@ Following are the steps to install Autopilot.
  
 	```dashboard:```
  
-  		```config:```
+  	```config:```
  
-    			```spinnakerLink: <<SPINNAKER DECK URL Example spinaker.opsmx.net>>```
+    ```spinnakerLink: <<SPINNAKER DECK URL Example spinaker.opsmx.net>>```
 
 4. Authentication:
 
@@ -90,21 +90,21 @@ Following are the steps to install Autopilot.
 
 		```Ldap:```
  
-  			```enabled: true```
+  		```enabled: true```
  
-  			```url: << LDAP URL: Example: ldaps://xxx.opsmx.com:636 >>```
+  		```url: << LDAP URL: Example: ldaps://xxx.opsmx.com:636 >>```
  
-  			```managerDn: cn=manager,dc=opsmx,dc=com```
+  		```managerDn: cn=manager,dc=opsmx,dc=com```
  
-  			```managerPassword: manager123```
+  		```managerPassword: manager123```
  
-  			```groupSearchBase: ou=groups,dc=opsmx,dc=com```
+  		```groupSearchBase: ou=groups,dc=opsmx,dc=com```
  
-  			```groupSearchFilter: member={0}```
+  		```groupSearchFilter: member={0}```
  
-  			```groupRoleAttributes: cn```
+  		```groupRoleAttributes: cn```
  
-  			```userDnPattern: uid={0},ou=users,dc=opsmx,dc=com```
+  		```userDnPattern: uid={0},ou=users,dc=opsmx,dc=com```
 
 		**Note**:
 
@@ -127,29 +127,29 @@ Following are the steps to install Autopilot.
 
 		```saml:```
  
-  			```enabled: true```
+  		```enabled: true```
 
-  			```userSource: gate # Groups will be obtained from SAML```
+  		```userSource: gate # Groups will be obtained from SAML```
  
-  			```keyStore: /opt/spinnaker/saml/oessaml.jks # The key in this secret must be oessamljks```
+  		```keyStore: /opt/spinnaker/saml/oessaml.jks # The key in this secret must be oessamljks```
  
-  			```keyStorePassword: changeit```
+  		```keyStorePassword: changeit```
  
-  			```keyStoreAliasName: saml```
+  		```keyStoreAliasName: saml```
  
-  			```metadataUrl: /opt/spinnaker/saml/oesmetadata.xml # The key in this secret must be oesmetadataxml```
+  		```metadataUrl: /opt/spinnaker/saml/oesmetadata.xml # The key in this secret must be oesmetadataxml```
  
-  			```redirectProtocol: https```
+  		```redirectProtocol: https```
  
-  			```redirectHostname: << AUTOPILOT GATE URL Example autopilot-gate.opsmx.net >>```
+  		```redirectHostname: << AUTOPILOT GATE URL Example autopilot-gate.opsmx.net >>```
  
-  			```redirectBasePath: /```
+  		```redirectBasePath: /```
  
-  			```issuerId: << Unique Issuer Id Example opsmx.test >>```
+  		```issuerId: << Unique Issuer Id Example opsmx.test >>```
  
-  			```jksSecretName: oessamljks```
+  		```jksSecretName: oessamljks```
  
-  			```metadataSecretName: oesmetadataxml```
+  		```metadataSecretName: oesmetadataxml```
 
 
 	* **Using OAuth 2.0**
@@ -158,68 +158,68 @@ Following are the steps to install Autopilot.
 
 		```oauth2:```
  
-  			```enabled: true```
+  		```enabled: true```
  
-  			```client:```
+  		```client:```
  
-    				```clientId: #CLIENT_ID```
+    	```clientId: #CLIENT_ID```
  
-    				```clientSecret: #CLIENT_SECRET_ID```
+    	```clientSecret: #CLIENT_SECRET_ID```
  
-    				```accessTokenUri: https://github.com/login/oauth/access_token```
+    	```accessTokenUri: https://github.com/login/oauth/access_token```
  
-    				```userAuthorizationUri: https://github.com/login/oauth/authorize```
+    	```userAuthorizationUri: https://github.com/login/oauth/authorize```
  
-    				```scope: user-email```
+    	```scope: user-email```
  
-  			```resource:```
+  		```resource:```
  
-    				```userInfoUri: https://api.github.com/user```
+    	```userInfoUri: https://api.github.com/user```
  
-  			```userInfoMapping:```
+  		```userInfoMapping:```
  
 		```email: email```
  
-    				```firstName: firstname```
+    	```firstName: firstname```
  
-    				```lastName: name```
+    	```lastName: name```
  
-    				```username: login```
+    	```username: login```
  
-  			```provider: GITHUB```
+  		```provider: GITHUB```
 
 
 5. Specify the user groups from the authentication system; these groups will have Super Administrator privileges in Autopilot. Specify userSource for the specific authorization type.
 
 	```platform:```
  
-  		```config:```
+  	```config:```
  
-    			```#These groups will have superAdmin privileges in Autopilot adminGroups: admin```
+    ```#These groups will have superAdmin privileges in Autopilot adminGroups: admin```
 
-    			```#Source of groups for Authorization```
+    ```#Source of groups for Authorization```
 
-    			```#Support sources: LDAP, FILE, GATE. In general, use "gate" for SAML```
+    ```#Support sources: LDAP, FILE, GATE. In general, use "gate" for SAML```
 
-    			```userSource: ldap```
+    ```userSource: ldap```
 
 6. Specify Spinnaker Gate URL. When the Authentication type is X509, set the corresponding flag to true.
 
 	```sapor:```
  
-  		```config:```
+  	```config:```
  
-    			```spinnakerImages: OSS```
+    ```spinnakerImages: OSS```
  
-    			```spinnaker:```
+    ```spinnaker:```
  
-    			```#true if authentication is enabled in Spinnaker authnEnabled: true```
+    ```#true if authentication is enabled in Spinnaker authnEnabled: true```
  
-    			```#encryption key is needed for sapor to startup```
+    ```#encryption key is needed for sapor to startup```
  
-    			```encrupt:```
+    ```encrupt:```
  
-      				```enabled:false```
+    ```enabled:false```
 
 7. Add opsmx helm chart using the command
 
@@ -302,57 +302,54 @@ After installing Autopilot, there are few changes in your Open Source Spinnaker 
 
 	```$ vi orca-local.yml``` 
 
+
 	Update/Add the following lines
 
-	```
-  	spinnaker:
+	  ```spinnaker:```
 
-    	extensibility:
+    ```extensibility:```
 
-      	plugins:
+      ```plugins:```
 
-        	Opsmx.VerificationGatePlugin:
+       ```Opsmx.VerificationGatePlugin:```
 
-          	enabled: true
+       ```enabled: true```
 
-          	version: 1.0.1
+       ```version: 1.0.1```
 
-          	config:
+       ```config:```
 
-        	Opsmx.VisibilityApprovalPlugin:
+       ```Opsmx.VisibilityApprovalPlugin:```
 
-          	enabled: true
+       ```enabled: true```
 
-          	version: 1.0.1
+       ```version: 1.0.1```
 
-          	config:
+       ```config:```
 
-        	Opsmx.TestVerificationGatePlugin:
+       ```Opsmx.TestVerificationGatePlugin:```
 
-          	enabled: true
+       ```enabled: true```
 
-          	version: 1.0.1
+       ```version: 1.0.1```
 
-          	config:
+       ```config:```
 
-        	Opsmx.PolicyGatePlugin:
+       ```Opsmx.PolicyGatePlugin:```
 
-          	enabled: true
+       ```enabled: true```
 
-          	version: 1.0.1
+       ```version: 1.0.1```
 
-          	config:
+       ```config:```
 
-      	repositories:
+      ```repositories:```
 
-        	opsmx-repo:
+       ```opsmx-repo:```
 
-          	id: opsmx-repo
+       ```id: opsmx-repo```
 
-          	url:
-      
- 		https://raw.githubusercontent.com/OpsMx/spinnakerPluginRepository/v3.10.0/plugins.json
-	```
+       ```url: https://raw.githubusercontent.com/OpsMx/spinnakerPluginRepository/v3.10.0/plugins.json```
 
 
 	Edit the file gate-local.yml (create a new file if not available)
@@ -361,53 +358,49 @@ After installing Autopilot, there are few changes in your Open Source Spinnaker 
 
 	Update/add the following lines
 
-	```
-  	spinnaker:
+  	```spinnaker:```
 
-   	  extensibility:
+   	```extensibility:```
 
-      	     plugins:
+   	```plugins:```
 
-      		deck-proxy:
+   	```deck-proxy:```
 
-        	  enabled: true
+   	```enabled: true```
 
-        	  plugins:
+   	```plugins:```
 
-          		Opsmx.VerificationGatePlugin:
+   	```Opsmx.VerificationGatePlugin:```
 
-            		  enabled: true
+   	```enabled: true```
 
-            		  version: 1.0.1
+   	```version: 1.0.1```
 
-          		Opsmx.TestVerificationGatePlugin:
+   	```Opsmx.TestVerificationGatePlugin:```
 
-            		  enabled: true
+       ```enabled: true```
 
-            		  version: 1.0.1
+       ```version: 1.0.1```
 
-          		Opsmx.PolicyGatePlugin:
+       ```Opsmx.PolicyGatePlugin:```
 
-            		  enabled: true
+       ```enabled: true```
 
-            		  version: 1.0.1
+       ```version: 1.0.1```
 
-          		Opsmx.VisibilityApprovalPlugin:
+       ```Opsmx.VisibilityApprovalPlugin:```
 
-            		  enabled: true
+       ```enabled: true```
 
-            	 	  version: 1.0.1
+       ```version: 1.0.1```
 
-      	     plugins-root-path: /opt/gate/plugins
+      ```plugins-root-path: /opt/gate/plugins```
 
-      	     repositories:
+      ```repositories:```
 
-               opsmx-repo:
+      ```opsmx-repo:```
 
-          	  url:
- 
-	https://raw.githubusercontent.com/OpsMx/spinnakerPluginRepository/v3.10.0/plugins.json
-	```
+      ```url: https://raw.githubusercontent.com/OpsMx/spinnakerPluginRepository/v3.10.0/plugins.json```
 
 	Edit the file front50-local.yml (create a new file if not available) 
 
@@ -415,23 +408,36 @@ After installing Autopilot, there are few changes in your Open Source Spinnaker 
 
 	Update/add the following lines
 
-	```
-	  spinnaker:
-    	extensibility:
-      	plugins:
-        	Opsmx.StaticPolicyPlugin:
-          	enabled: true
-          	version: "1.0.1"
-          	config: null
-      	repositories:
-        	opsmx-repo:
-          	id: "opsmx-repo"
-          	url: "https://raw.githubusercontent.com/OpsMx/spinnakerPluginRepository/v3.10.0.staticpolicy/plugins.json" 
-  	policy: 
-    	opa: 
-      	enabled: true 
-      	url: << AUTOPILOT GATE URL Example https://autopilot-gate.opsmx.net >>
-	```
+	  ```spinnaker:```
+
+    ```extensibility:```
+
+      ```plugins:```
+
+       ```Opsmx.StaticPolicyPlugin:```
+
+       ```enabled: true```
+
+       ```version: "1.0.1"```
+
+       ```config: null```
+
+      ```repositories:```
+
+      ```opsmx-repo:```
+
+      ```id: "opsmx-repo"```
+
+      ```url: "https://raw.githubusercontent.com/OpsMx/spinnakerPluginRepository/v3.10.0.staticpolicy/plugins.json"```
+ 
+  	```policy:```
+ 
+    ```opa:```
+ 
+      ```enabled: true```
+ 
+      ```url: << AUTOPILOT GATE URL Example https://autopilot-gate.opsmx.net >>```
+
 
 4. Run Hal deploy apply command to reflect the changes 
 

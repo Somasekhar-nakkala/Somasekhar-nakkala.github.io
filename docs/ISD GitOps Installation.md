@@ -43,9 +43,11 @@ ISD stores all the configuration in a repo, typically a '**git repo**', though b
 	!!! Note
    		We recommend that we start with the defaults, updating just the URL and gitopsHalyard details and gradually adding SSO, external DBs, etc. while updating the installed instance.
 
-6. Push all changes in the gitops-repo to git (E.g ```git add -A; git commit -m"my changes";git push```).
+6. Edit namespace in the install/services.yaml file, if changed from default (i.e. "opsmx-isd")
 
-7. Create namespace, a configmap for inputs and a service account as follows:
+7. Push all changes in the gitops-repo to git (E.g ```git add -A; git commit -m"my changes";git push```).
+
+8. Create namespace, a configmap for inputs and a service account as follows:
 
 	```
 	kubectl create ns opsmx-isd
@@ -58,7 +60,7 @@ ISD stores all the configuration in a repo, typically a '**git repo**', though b
 
 	ISD supports multiple secret managers for storing secrets such as DB passwords, SSO authentication details, and so on. Using Kubernetes secrets is the default.
 
-8. Create the following secrets. The default values are handled by the installer, except for gittoken. If you are using External SSO, DBs, etc. you might want to change them. Else, best to leave them at the defaults:
+9. Create the following secrets. The default values are handled by the installer, except for gittoken. If you are using External SSO, DBs, etc. you might want to change them. Else, best to leave them at the defaults:
 
 	```
 	kubectl -n opsmx-isd create secret generic gittoken --from-literal=gittoken=PUT_YOUR_GITTOKEN_HERE
@@ -83,14 +85,14 @@ ISD stores all the configuration in a repo, typically a '**git repo**', though b
 
 	The installation is done by a Kubernetes job that processes the secrets, generates YAMLs, stores them into the git-repo and creates the objects in Kubernetes.
 
-9. Installation of ISD by executing this command:
+10. Installation of ISD by executing this command:
 
 	```kubectl -n opsmx-isd apply -f install/ISD-Install-Job.yaml```
 
 
 	##**Monitor the installation process**##
 
-10. Wait for all pods to stabilize (about 10-20 min, depending on your cluster load). The "oes-config" in Completed status indicates completion of the installation process. Check the status using the following comment: ```kubectl -n opsmx-isd get po -w```
+11. Wait for all pods to stabilize (about 10-20 min, depending on your cluster load). The "oes-config" in Completed status indicates completion of the installation process. Check the status using the following comment: ```kubectl -n opsmx-isd get po -w```
 
 	**Note:** If the pod starting with isd-install-* errors out, please check the logs as follows, replacing the pod-name correctly:
 
@@ -107,9 +109,9 @@ ISD stores all the configuration in a repo, typically a '**git repo**', though b
 
 	##**Check the installation**##
 
-11. Access ISD using the URL specified in the values.yaml in step 5 in a browser such as Chrome.
+12. Access ISD using the URL specified in the values.yaml in step 5 in a browser such as Chrome.
 
-12. Login to the ISD instance with user/password as admin and opsmxadmin123, if using the defaults for build-in LDAP.
+13. Login to the ISD instance with user/password as admin and opsmxadmin123, if using the defaults for build-in LDAP.
 
 !!! Note
    	If you are facing any Issues during installation, refer to the [Troubleshooting](https://docs.opsmx.com/release-history/previous-releases/isd-4.0/additional-resources/troubleshooting#isd-gitops-installation-issues) page.

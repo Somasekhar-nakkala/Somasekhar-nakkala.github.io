@@ -29,8 +29,6 @@ with hardened Spinnaker.
 
 8. **GitOps style delivery:** Manage complex applications and infrastructure running on Kubernetes using fast and 
 secure applications deployment workflows triggered by Git events.
-
-
 ![Orchestration_module_1](./Orchestration_module_1.png)
 
 

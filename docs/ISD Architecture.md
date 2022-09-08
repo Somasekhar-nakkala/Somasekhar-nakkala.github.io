@@ -3,7 +3,9 @@
 The figure below depicts the component view of the ISD architecture. As mentioned earlier, it consists of two modules, 
 Orchestration, and the Data & Intelligence module.
 
-![ISD_Architecture](./ISD_Architecture.png)
+<p align="center">
+  <img height="300" src="/ISD_Architecture.png">
+</p>
 
 
 **ISD Services**
