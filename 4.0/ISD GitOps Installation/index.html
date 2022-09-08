@@ -48,7 +48,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/versions.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -811,6 +811,76 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Autopilot%20Installation/" class="md-nav__link">
+        Autopilot Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Routing%20Web%20URLs%20to%20ISD%20services/" class="md-nav__link">
+        Routing Web URLs to ISD services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20Service%20Catalogue/" class="md-nav__link">
+        ISD Service Catalogue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20-%20Commonly%20used%20Commands/" class="md-nav__link">
+        ISD   Commonly used Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Promethues%20and%20Kubernetes/" class="md-nav__link">
+        Promethues and Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -952,6 +1022,9 @@
 <p class="admonition-title">Note</p>
 <p>We recommend that we start with the defaults, updating just the URL and gitopsHalyard details and gradually adding SSO, external DBs, etc. while updating the installed instance.</p>
 </div>
+</li>
+<li>
+<p>Edit namespace in the install/services.yaml file, if changed from default (i.e. "opsmx-isd")</p>
 </li>
 <li>
 <p>Push all changes in the gitops-repo to git (E.g <code>git add -A; git commit -m"my changes";git push</code>).</p>
@@ -1120,8 +1193,6 @@ kubectl -n opsmx-isd logs isd-install-tjzlx -c apply-yamls
     
     
       <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
-      
-        <script src="../assets/versions.js"></script>
       
     
   </body>

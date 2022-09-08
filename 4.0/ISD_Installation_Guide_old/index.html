@@ -48,7 +48,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/versions.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -726,6 +726,76 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Autopilot%20Installation/" class="md-nav__link">
+        Autopilot Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Routing%20Web%20URLs%20to%20ISD%20services/" class="md-nav__link">
+        Routing Web URLs to ISD services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20Service%20Catalogue/" class="md-nav__link">
+        ISD Service Catalogue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20-%20Commonly%20used%20Commands/" class="md-nav__link">
+        ISD   Commonly used Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Promethues%20and%20Kubernetes/" class="md-nav__link">
+        Promethues and Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -860,11 +930,13 @@ as "config" and copy to .kube folder in your machine</li>
 <h3 id="prepare-gitops-repo"><strong>Prepare gitops repo</strong></h3>
 <p>Prepare your gitops repository as follows:</p>
 <p>1.Create a working directory in your local system</p>
-<pre><code>```mkdir opsmx-isd  #create a working directory for your installation```
-</code></pre>
+<div class="codehilite"><pre><span></span><code>```<span class="nv">mkdir</span> <span class="nv">opsmx</span><span class="o">-</span><span class="nv">isd</span>  #<span class="nv">create</span> <span class="nv">a</span> <span class="nv">working</span> <span class="nv">directory</span> <span class="k">for</span> <span class="nv">your</span> <span class="nv">installation</span>```
+</code></pre></div>
+
 <p>2.Clone standard-gitops-repo repository from appropriate branch</p>
-<pre><code>`git clone https://github.com/OpsMx/standard-gitops-repo.git -b 3.10`
-</code></pre>
+<div class="codehilite"><pre><span></span><code>`git clone https://github.com/OpsMx/standard-gitops-repo.git -b 3.10`
+</code></pre></div>
+
 <p>3.Clone your gitops repo using the following command:</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/&lt;your-id&gt;/&lt;gitops-repo&gt; 
 For Example: git clone https://github.com/ravigorremuchu/oes-repo.git
@@ -955,8 +1027,6 @@ git push
     
     
       <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
-      
-        <script src="../assets/versions.js"></script>
       
     
   </body>
