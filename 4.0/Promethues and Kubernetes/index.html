@@ -1058,46 +1058,58 @@ recent meetup from the architect of Kayenta</p>
 </code></pre></div>
 <h3 id="step-4-create-canary-config"><strong>Step 4: Create Canary Config</strong></h3>
 <p>Add canary config in the form of metric template of your monitoring data store (Prometheus)</p>
-<p>Click on canary config page under delivery tab on application tab as shown below. (image-1)</p>
-<p><img alt="Canary_configs_page" src="../Canary_configs_page.png" /></p>
+<p>Click on canary config page under delivery tab on application tab as shown below. (Image-1)</p>
+<figure>
+<p><img align="center" alt="Canary_configs_page" src="../Canary_configs_page.png" />
+  </p>
+<figcaption>Image-1</figcaption>
+</figure>
 <p>After that, click on ‘<strong>Add Configuration</strong>’, ‘Add configuration name and description’.</p>
 <p>Click on ‘<strong>Add Metric</strong>’, which will result in a pop-up as shown below. </p>
-<p align="center">
-  <img height="300" src="/Add_metric.png">
-</p>
-
+<figure>
+<p><img align="center" alt="Canary_configs_page" src="../Add_metric.png" />
+  </p>
+<figcaption>Image-2</figcaption>
+</figure>
 <p><strong>Add Name and Metric name:</strong> We need to add a filter template in the case of kubernete cluster because pod names are saved in the format - container_label_{your pod name} in the Prometheus server. So for the filter template, be sure to attach the “container_label_” string before your pod name which you will give in the canary analysis stage in pipeline and spinnaker will use internally to query metric data from the Prometheus server. </p>
 <p>Label Bindings are another way to filter metrics for aggregation. Internally, if the query to Prometheus results in more than one metric (due to multiple tags/dimensions that match metric name) then they are averaged to form one series of data.</p>
 <p>Labels allow filtering to support only the required tags to be used in generating metric time series. This is also a simple way to utilize labels assigned to Kubernetes pods to select in metric time series query. In summary, before adding anything in this pop up template, Add template in filter templates button (image-1) and then come to this pop up, configure metric and attached filter template. </p>
 <p><strong>Direction:</strong> Customize for change in higher or lower values. For example, measuring throughput, higher is acceptable, however, for latency lower is acceptable Filter templates allow customization of metrics to use in canary analysis. Some implicit binding variables available in filter templates are scope, project, location, and resource Type. 
 Filter templates allow literal bindings along with variable bindings. For example, in Prometheus metrics, if only cpu idle time is of interest then a literal filter can be set to filter only idle time and not utilization. Another example is when the canary comparison is using a single pod and not the entire server group then the filter can be specified as shown in image-3.</p>
 <p>Click on <strong>Add template</strong> under filter template section on canary configuration.</p>
-<p align="center">
-  <img height="300" src="/Add_template.png">
-</p>
-
+<figure>
+<p><img align="center" alt="Canary_configs_page" src="../Add_template.png" />
+  </p>
+<figcaption>Image-3</figcaption>
+</figure>
 <p>${scope} will fill with baseline and canary version dynamically i.e. pod name of your Kubernetes cluster. Now you are done with the canary configuration.</p>
-<p align="center">
-  <img height="300" src="/Canary_analysis_config1.png">
-</p>
-
-<p align="center">
-  <img height="300" src="/Canary_analysis_config2.png">
-</p>
-
-<p align="center">
-  <img height="300" src="/Canary_analysis_config3.png">
-</p>
-
+<figure>
+<p><img align="center" alt="Canary_configs_page" src="../Canary_analysis_config1.png" />
+  </p>
+<figcaption>Image-4</figcaption>
+</figure>
+<figure>
+<p><img align="center" alt="Canary_configs_page" src="../Canary_analysis_config2.png" />
+  </p>
+<figcaption>Image-5</figcaption>
+</figure>
+<figure>
+<p><img align="center" alt="Canary_configs_page" src="../Canary_analysis_config3.png" />
+  </p>
+<figcaption>Image-6</figcaption>
+</figure>
 <h3 id="step-5-run-the-pipeline-get-scores-and-review-the-scores"><strong>Step 5: Run the pipeline / Get scores and Review the scores</strong></h3>
 <p>Over ‘Canary reports’ tab, under the ‘delivery tab’ on application page one can see the reports of metrics which we configured in the canary config.</p>
-<p align="center">
-  <img height="300" src="/Canary_reports1.png">
-</p>
-
-<p align="center">
-  <img height="300" src="/Canary_reports2.png">
-</p>
+<figure>
+<p><img align="center" alt="Canary_configs_page" src="../Canary_reports1.png" />
+  </p>
+<figcaption>Image-7</figcaption>
+</figure>
+<figure>
+<p><img align="center" alt="Canary_configs_page" src="../Canary_reports2.png" />
+  </p>
+<figcaption>Image-8</figcaption>
+</figure>
 
               
             </article>

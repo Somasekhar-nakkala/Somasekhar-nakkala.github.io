@@ -21,3 +21,8 @@
 .md-typeset .code .admonition {
   font-size: 16px;
 }
+
+img[src$="centerme"] {
+  display:block;
+  margin: 0 auto;
+}
