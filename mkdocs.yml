@@ -82,7 +82,7 @@ extra:
 
   analytics:
     provider: google
-    property: G-96SSPN3WTB
+    property: UA-240811344-1
     feedback:
       title: Was this page helpful?
       ratings:
