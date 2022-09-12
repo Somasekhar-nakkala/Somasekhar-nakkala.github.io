@@ -1,54 +1,68 @@
 #**Application Dashboard**#
-The application dashboard helps you to get a complete detailed view of the applications along with its services and pipelines. In the application dashboard you can also view the environments and the gates that the service or the application passes through before final deployment. You can also view the details of the deployment.
 
-Click **"Dashboard"** and click **"Application Dashboard"**
-##**<span style="color: DodgerBlue;">Summary View</span>**##
-In the above dashboard, the first view is the summary view where you can see there are different applications with the following details:
+When you log into ISD, the first thing you will see is the Application dashboard. 
+The application dashboard gives you the high-level operational information you need to help you 
+understand the health of all your applications at a glance. In the application dashboard, you 
+can also view the environments and the gates that the service or the application passes through 
+before final deployment. 
+
+* After your successful login, the Application Dashboard appears and it gives you high-level overviews of your applications, and pipelines along with the following important operational information: 
+
+	1.** Total Applications** - The number of applications to which you have access.	
+
+	2.** Deployments** - The total number of deployments, from all the applications to which you have access.	
+
+	3.** Pipeline Failures** - Any pipeline failures, in any of the applications to which you have access.
+
+	4.** Pending Approvals** - Any approvals which are pending for your action.
+
+	5.** Policy Violations** - Any policy violations, in any of the applications to which you have access.
  
- * <span style="color: #008080;">Total Applications - The number of services in the application</span>
- * <span style="color: red;">Deployments - The deployment details</span>
- * <span style="color: blue;">Pending Approvals - Any approvals which are pending</span>
- * <span style="color: MediumVioletRed;">Policy Violations - Any policy violations</span>
- * <span style="color: DarkOrange;">Verification Failures - Any failures in verification process</span>
+	6.** Verification Failures** - Any failures in the verification process within the applications to which you have access.
 
-<span style="color: #008080; font-family: Calibri; font-size: 1.5em;">Total Applications - The number of services in the application</span>
+	7.** Applications** - Names of the each application
 
-<span style="color: #008080; font-family: Times New Roman; font-size: 1.2em;">Total Applications - The number of services in the application</span>
-
-<span style="color: #008080; font-family: Impact; font-size: 1.5em;">Total Applications - The number of services in the application</span>
-
-<span style="color: #008080; font-family: cursive; font-size: 1.5em;">Total Applications - The number of services in the application</span>
-
-<span style="color: #f2cf4a; font-family: Lucidatypewriter; font-size: 1.5em;">Total Applications - The number of services in the application</span>
-
-<span style="color: #f2cf4a; font-family: Brush Script MT; font-size: 1.5em;">Total Applications - The number of services in the application</span>
-
-<span style="color: #f2cf4a; font-family: Rockwell; font-size: 1.5em;">Total Applications - The number of services in the application</span>
+	![Application_Dashboard4](./Application_Dashboard4.png)
 
 
-  <head>
-    <title>Title of the document</title>
-    <style>
-      table,
-      th,
-      td {
-        padding: 2px;
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-    </style>
-  </head>
+* Users can perform the following actions from the application dashboard:
 
-| Cloud Driver |Deck          | API Caller     | Gate          | Orca         |
-|:------------ |:------------:|:--------------:|:-------------:| ------------:|
-| Gate         | Gate         | Roscoe         |               |              |
-| Orca         | Front50      | Orca           |               |              |
-| Cloud Driver | Roscoe       | Cloud Driver   |               |              |
-| Front50      | Igor         | Front50        |               |              |
-| Roscoe       | Orca         | Igor           |               |              |
-| Igor         | Cloud Driver | Gate           |               |              |
+	* [Edit Application](https://docs.opsmx.com/release-history/previous-releases/isd-4.0/user-guide/manage-application/configure-an-application)
 
-![Getting Started](./table_image.png)
+	* [Edit Pipeline](https://docs.opsmx.com/release-history/previous-releases/isd-4.0/user-guide/manage-pipelines/edit-pipeline)
+
+	* Edit Service
+
+	* [Run Pipeline](https://docs.opsmx.com/products/orchestration-module-opsmx-enterprise-for-spinnaker-oes/additional-feature-configuration/pipeline-management/run-a-pipeline)
+
+	* [Delete Application](https://docs.opsmx.com/release-history/previous-releases/isd-4.0/user-guide/manage-application/delete-an-application)
+
+
+	From the Application dashboard, select your application name which you need to perform any of the following actions. Click "**Three dots**" at end of the application name and then select any of the actions as shown in the image below.
+
+	![Application_Dashboard5](./Application_Dashboard5.png)
+
+
+* Users will also have options to **[create a new application](https://docs.opsmx.com/release-history/previous-releases/isd-4.0/user-guide/manage-application/create-an-application)** and **[Deployment](https://docs.opsmx.com/quickstart-guide/manage-pipelines/run-deployments-execute-pipelines)** from the application dashboard.
+
+	1.Click on "**+New Application**" button to create a new application.
+ 
+	2.Click on "**Start New Deployment**" button to deploy your application. 
+
+	![Start_new_deployment4](./Start_new_deployment4.png)
+
+
+* Users can also change the time period to view the application within a certain duration. For example - 1 day, 7 days, 1 month, 6 months and all. To do so, click the **Last 7 days** drop-down and select the time period. Refer to the image below:
+
+	![Start_new_deployment5](./Start_new_deployment5.png)
+
+* User can opt to show or hide these columns in the list available. To do so, click the menu icon as shown in the image below. The list of available columns will appear. You can select/deselect a particular column to remove it from the application table.
+
+	![Start_new_deployment6](./Start_new_deployment6.png)
+
+
+
+
 
 
 

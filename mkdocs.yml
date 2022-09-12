@@ -51,6 +51,24 @@ nav:
        - ISD Service Catalogue.md
        - ISD - Commonly used Commands.md
        - Promethues and Kubernetes.md
+    - User Guide:
+       - Application Dashboard.md
+       - Application Service View.md
+       - Manage Application.md
+       - Create an Application.md
+       - Configure an Application.md
+       - Delete an Application.md
+       - Create a Pipeline.md
+       - Add Stage.md
+       - Add Trigger.md
+       - Edit Pipeline.md
+       - Rename Pipeline.md
+       - Delete Pipeline.md
+       - Disable Pipeline.md
+       - Lock Pipeline.md
+       - View and Restore Pipeline.md
+       - Approval Gate.md
+
 extra:
   social:
     - icon: fontawesome/brands/twitter 
@@ -64,8 +82,7 @@ extra:
 
   analytics:
     provider: google
-    property: G-XXXXXXXXXX
-
+    property: G-96SSPN3WTB
     feedback:
       title: Was this page helpful?
       ratings:
@@ -80,6 +97,7 @@ extra:
           note: >- 
             Thanks for your feedback! Help us improve this page by
             using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+
 
   version:
     provider: mike
