@@ -2,7 +2,6 @@ extra_css:
   - stylesheets/extra.css
 
 site_name: OpsMx ISD Documentation
-site_url: https://somasekhar-nakkala.github.io/
 theme:
   name: material
   highlightjs: false
