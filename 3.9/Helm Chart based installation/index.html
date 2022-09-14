@@ -1,0 +1,1939 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Helm Chart based installation - OpsMx ISD Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#00bdd6">
+        
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15h2v2h-2v-2m0-8h2v6h-2V7m1-5C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8 8 8 0 0 1 8-8 8 8 0 0 1 8 8 8 8 0 0 1-8 8Z"/></svg>');}</style>
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-240811344-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="cyan" data-md-color-accent="cyan">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#helm-chart-based-installation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OpsMx ISD Documentation" class="md-header__button md-logo" aria-label="OpsMx ISD Documentation" data-md-component="logo">
+      
+  <img src="../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpsMx ISD Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Helm Chart based installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Somasekhar-nakkala/Somasekhar-nakkala.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Somasekhar-nakkala/Somasekhar-nakkala.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OpsMx ISD Documentation" class="md-nav__button md-logo" aria-label="OpsMx ISD Documentation" data-md-component="logo">
+      
+  <img src="../logo.svg" alt="logo">
+
+    </a>
+    OpsMx ISD Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Somasekhar-nakkala/Somasekhar-nakkala.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Somasekhar-nakkala/Somasekhar-nakkala.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Overview" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpsMx%20Intelligent%20Software%20Delivery%20Platform/" class="md-nav__link">
+        OpsMx Intelligent Software Delivery Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Orchestration%20Module%20-%20OpsMx%20Enterprise%20for%20Spinnaker%20%28OES%29/" class="md-nav__link">
+        Orchestration Module   OpsMx Enterprise for Spinnaker (OES)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OES%20Features/" class="md-nav__link">
+        OES Features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Automated%20Workflows/" class="md-nav__link">
+        Automated Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Multi-cloud%20Deployments/" class="md-nav__link">
+        Multi cloud Deployments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Safe-Deployment%20strategies/" class="md-nav__link">
+        Safe Deployment strategies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scalable%20%26%20Extensible/" class="md-nav__link">
+        Scalable & Extensible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OES%20Concepts/" class="md-nav__link">
+        OES Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application%20Management/" class="md-nav__link">
+        Application Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application%20Deployment/" class="md-nav__link">
+        Application Deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data%20and%20Intelligence%20Module%20-%20Autopilot/" class="md-nav__link">
+        Data and Intelligence Module   Autopilot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Observability/" class="md-nav__link">
+        Observability
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Audit%20and%20Traceability/" class="md-nav__link">
+        Audit and Traceability
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Continuous%20Compliance%20-%20Policy/" class="md-nav__link">
+        Continuous Compliance   Policy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20Quick%20Installation/" class="md-nav__link">
+        ISD Quick Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trial%20User%20Guide/" class="md-nav__link">
+        Trial User Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SaaS%20Trial%20Usage%20Instruction%20Video/" class="md-nav__link">
+        SaaS Trial Usage Instruction Video
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Operator Manual
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Operator Manual" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Operator Manual
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20Architecture/" class="md-nav__link">
+        ISD Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20Deployment%20Architecture/" class="md-nav__link">
+        ISD Deployment Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Environment%20setup%20for%20OpsMx%20ISD/" class="md-nav__link">
+        Environment setup for OpsMx ISD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20On-Prem%20POV%20Infrastructure%20requirements/" class="md-nav__link">
+        ISD On Prem POV Infrastructure requirements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20Installation%20Guide/" class="md-nav__link">
+        ISD Installation Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20GitOps%20Installation/" class="md-nav__link">
+        ISD GitOps Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20Installation%20Configuration/" class="md-nav__link">
+        ISD Installation Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Helm Chart based installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Helm Chart based installation
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#helm-chart-based-installation-detailed" class="md-nav__link">
+    Helm Chart based installation - Detailed
+  </a>
+  
+    <nav class="md-nav" aria-label="Helm Chart based installation - Detailed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    Pre-requisites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-basics" class="md-nav__link">
+    Chart Basics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-contents-oes" class="md-nav__link">
+    Chart Contents - OES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-options" class="md-nav__link">
+    Chart Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routing-ui-to-backend" class="md-nav__link">
+    Routing UI to backend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gate" class="md-nav__link">
+    Gate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoconfig" class="md-nav__link">
+    Autoconfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openldap" class="md-nav__link">
+    OpenLDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-policy-agent-opa" class="md-nav__link">
+    Open Policy Agent (OPA)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-controller-secrets-agent-configuration" class="md-nav__link">
+    Create-controller-secrets (Agent Configuration)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-custom-ca" class="md-nav__link">
+    Chart-Custom CA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-airgapped-install" class="md-nav__link">
+    Chart-Airgapped Install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#halyard-gitops" class="md-nav__link">
+    Halyard GitOps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-create-halyard-local" class="md-nav__link">
+    Container: create-halyard-local
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-halyardconfig-update" class="md-nav__link">
+    Container: halyardconfig-update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-halyard-overrideurl" class="md-nav__link">
+    Container: halyard-overrideurl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-halyard" class="md-nav__link">
+    Container: halyard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-using-hal" class="md-nav__link">
+    Install-using-hal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-pipeline-install" class="md-nav__link">
+    sample-pipeline-install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20Installation%20on%20OpenShift/" class="md-nav__link">
+        ISD Installation on OpenShift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Autopilot%20Installation/" class="md-nav__link">
+        Autopilot Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Routing%20Web%20URLs%20to%20ISD%20services/" class="md-nav__link">
+        Routing Web URLs to ISD services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20Service%20Catalogue/" class="md-nav__link">
+        ISD Service Catalogue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ISD%20-%20Commonly%20used%20Commands/" class="md-nav__link">
+        ISD   Commonly used Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Promethues%20and%20Kubernetes/" class="md-nav__link">
+        Promethues and Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          User Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          User Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application%20Dashboard/" class="md-nav__link">
+        Application Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application%20Service%20View/" class="md-nav__link">
+        Application Service View
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Manage%20Application/" class="md-nav__link">
+        Manage Application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Create%20an%20Application/" class="md-nav__link">
+        Create an Application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Configure%20an%20Application/" class="md-nav__link">
+        Configure an Application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Delete%20an%20Application/" class="md-nav__link">
+        Delete an Application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Create%20a%20Pipeline/" class="md-nav__link">
+        Create a Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Add%20Stage/" class="md-nav__link">
+        Add Stage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Add%20Trigger/" class="md-nav__link">
+        Add Trigger
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Edit%20Pipeline/" class="md-nav__link">
+        Edit Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rename%20Pipeline/" class="md-nav__link">
+        Rename Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Delete%20Pipeline/" class="md-nav__link">
+        Delete Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Disable%20Pipeline/" class="md-nav__link">
+        Disable Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lock%20Pipeline/" class="md-nav__link">
+        Lock Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../View%20and%20Restore%20Pipeline/" class="md-nav__link">
+        View and Restore Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Approval%20Gate/" class="md-nav__link">
+        Approval Gate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#helm-chart-based-installation-detailed" class="md-nav__link">
+    Helm Chart based installation - Detailed
+  </a>
+  
+    <nav class="md-nav" aria-label="Helm Chart based installation - Detailed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    Pre-requisites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-basics" class="md-nav__link">
+    Chart Basics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-contents-oes" class="md-nav__link">
+    Chart Contents - OES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-options" class="md-nav__link">
+    Chart Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routing-ui-to-backend" class="md-nav__link">
+    Routing UI to backend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gate" class="md-nav__link">
+    Gate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoconfig" class="md-nav__link">
+    Autoconfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openldap" class="md-nav__link">
+    OpenLDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-policy-agent-opa" class="md-nav__link">
+    Open Policy Agent (OPA)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-controller-secrets-agent-configuration" class="md-nav__link">
+    Create-controller-secrets (Agent Configuration)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-custom-ca" class="md-nav__link">
+    Chart-Custom CA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-airgapped-install" class="md-nav__link">
+    Chart-Airgapped Install
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#halyard-gitops" class="md-nav__link">
+    Halyard GitOps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-create-halyard-local" class="md-nav__link">
+    Container: create-halyard-local
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-halyardconfig-update" class="md-nav__link">
+    Container: halyardconfig-update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-halyard-overrideurl" class="md-nav__link">
+    Container: halyard-overrideurl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-halyard" class="md-nav__link">
+    Container: halyard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-using-hal" class="md-nav__link">
+    Install-using-hal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-pipeline-install" class="md-nav__link">
+    sample-pipeline-install
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/Somasekhar-nakkala/Somasekhar-nakkala.github.io/edit/master/docs/Helm Chart based installation.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="helm-chart-based-installation"><strong>Helm Chart based installation</strong></h1>
+<h2 id="helm-chart-based-installation-detailed"><strong>Helm Chart based installation - Detailed</strong></h2>
+<p>The document is primarily intended to be used for Helm based ISD installation. 
+Follow these steps if you are trying to install ISD yourself.</p>
+<h3 id="pre-requisites"><strong>Pre-requisites</strong></h3>
+<p>To use this document you would need prior familiarity of Helm chart concepts, 
+YAML, Kubernetes knowledge and working knowledge of GitHub &amp; Spinnaker tool.</p>
+<h3 id="chart-basics"><strong>Chart Basics</strong></h3>
+<p>ISD helm chart is located at https://github.com/OpsMx/enterprise-spinnaker.git. 
+We fully support installations with custom-CAs and/or airgapped installations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Various versions of the chart are available in separate branches of the same repo. </p>
+</div>
+<p>For installation, you need the following:</p>
+<ol>
+<li>
+<p>Standard-gitops repo: <a href="https://github.com/OpsMx/standard-gitops-repo.git">https://github.com/OpsMx/standard-gitops-repo.git</a> . Select the “branch” in this repo as appropriate </p>
+<ul>
+<li>AIRGAPPED: <a href="https://github.com/OpsMx/airgap-gitops.git">https://github.com/OpsMx/airgap-gitops.git</a></li>
+</ul>
+</li>
+<li>
+<p>Sample pipelines: <a href="https://github.com/OpsMx/sample-pipelines.git">https://github.com/OpsMx/sample-pipelines.git</a></p>
+</li>
+<li>
+<p>Plugins: <a href="https://github.com/OpsMx/datasource-plugins.git">https://github.com/OpsMx/datasource-plugins.git</a> and <a href="https://github.com/OpsMx/datasource-plugins.git">https://github.com/OpsMx/spinnakerPluginRepository.git</a></p>
+<ul>
+<li>AIRGAPPED: See additional configuration information for oes-gate and spin-orca</li>
+</ul>
+</li>
+</ol>
+<h3 id="chart-contents-oes"><strong>Chart Contents - OES</strong></h3>
+<p>It is best to clone this “opsmx/enterprise-spinnaker.git” repo and familiarize yourself with the contents before proceeding further.</p>
+<p>In the "enterprise-spinnaker/chars/oes" folder, these are the key folders:</p>
+<ol>
+<li>
+<p>Values.yaml: This is the base values.yaml file that contains all the defaults for the chart. 
+All values here can be overridden by the "-f values-changed.yaml" option on the helm install command. Only the changed values need to be present in this file.</p>
+</li>
+<li>
+<p>Templates: This folder contains all the OES components and their configurations</p>
+</li>
+<li>
+<p>Charts: This contains charts that we package along with OES. These include Spinnaker, minio, redis, prometheus, 
+elastic &amp; more. Key changes are in the Spinnaker chart. Key files inside the "spinnaker-chart" are:</p>
+<ul>
+<li>
+<p>Templates: These are the Spinnaker related templates</p>
+</li>
+<li>
+<p>Config: These are files that are included in the "templates-files"</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Configs: This contains files (yaml's, scripts) that are included in the OES templates</p>
+</li>
+</ol>
+<h3 id="chart-options"><strong>Chart Options</strong></h3>
+<h3 id="routing-ui-to-backend"><strong>Routing UI to backend</strong></h3>
+<p>Routing traffic from web-browser (UI) to various services in the backend can be done in multiple ways 
+depending on the environment. This includes ingress, cert-manager or custom certs (for TLS, also known as https), 
+load balancers, node-ports, etc. To keep it simple, all we need to know at this point in time is that 
+all UI traffic is routed via “gate”, a spinnaker component.</p>
+<h3 id="gate"><strong>Gate</strong></h3>
+<p>SAPOR service in OES talks to Spinnaker services. All the communication OES makes with Spinnaker is done thru 
+SAPOR service and it does so via “gate” (or multiple gates, a gate is a spinnaker component used by the Spinnaker 
+UI and all API callers communicate with Spinnaker). As a design choice, OES does not communicate directly with any of 
+the spinnaker services, though front50 and echo do have outbound communication to OES SAPOR.</p>
+<p>These are the options:</p>
+<ol>
+<li>
+<p>OES-Gate: This is the default option. All communication from the UI (OES UI &amp; spin-deck also known as Spinnaker Gate) and the communication between SAPOR and Spinnaker happens via this ‘common’ gate. </p>
+<p><code>Values.yaml: global.commonGate.enabled=true</code></p>
+<p>Files: <code>templates/(deployment|configmaps)/oes-gate*.yml</code></p>
+</li>
+<li>
+<p>OES-Gate: For OES components and “spin-gate” for spinnaker components.</p>
+<p><code>Values.yaml: global.commonGate.enabled=false</code> (Note: This option is usually not used)</p>
+</li>
+<li>
+<p>SAPOR-Gate:  This is an additional gate into Spinnaker that is configured with basic authentication i.e. simple username and password. As SAPOR connects to spinnaker services via OES-Gate (or spin-gate), the API needs to be authenticated. SAPOR-Gate is an option when 2-factor authentication is enabled on OES-Gate or spinnaker-gate.</p>
+<p>Note: SAPOR-Spinnaker authentication is not possible using UI.</p>
+<p><code>Values.yaml:  saporGate.enabled=false</code> (Disabled by default)</p>
+<p><code>saporGate.config.username, password : basic auth credentials</code></p>
+<p>Files: <code>template/sapor-gate folder contains the required files</code></p>
+</li>
+<li>
+<p>X509: This is not really a gate but an option to authenticate to spin-gate via x509 certificate authentication. This requires that the TLS termination happens at the gate and not at the ingress or load balancer. </p>
+</li>
+<li>
+<p>Values.yaml: The configuration is part of spinnaker.gitOps and is involved. Best to configure manually as certificates need to be generated and imported into secret stores.</p>
+</li>
+</ol>
+<p>Normally, one would not need to touch the “oes-gate-config” configMap. However, it is good to know certain key points:</p>
+<ul>
+<li>
+<p>services.fiat.enabled: true (Ensure that this is set to true of Spinnaker authZ (fiat) is enabled </p>
+</li>
+<li>
+<p>service.gate and deck: These should point to external oes-gate and spin-deck URLs</p>
+</li>
+<li>
+<p>spinnaker.extensibility.repositories: URL mentioned is accessed for downloading plugins related for Visibility, Verification and Policy. If they are not working (showing as JSON) in Spinnaker UI, this is a place to check.</p>
+</li>
+</ul>
+<h3 id="autoconfig"><strong>Autoconfig</strong></h3>
+<p>OES needs to configure the Spinnaker connection. In addition, even though Autopilot and OPA are installed along with the chart, these are separate data sources and need to be configured in the “integrations” page of the OES set-up.</p>
+<p><code>Values.yaml: oesAutoConfiguration: true</code> (Default is true)</p>
+<p>Files: <code>templates/hooks/oes-config-job.yaml templates/configmap/datasource-creation.yaml</code></p>
+<p>This job runs a script in the “datasource-creation” configMap that:</p>
+<ul>
+<li>
+<p>Waits for all pods to be up</p>
+</li>
+<li>
+<p>Makes the curl calls to add gitops, autopilot and OPA data sources</p>
+</li>
+<li>
+<p>Makes a curl call to add Spinnaker</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Check the logs of “oes-config-*” pod, if these are not auto-configured.</p>
+</div>
+<h3 id="openldap"><strong>OpenLDAP</strong></h3>
+<p>Both for authentication and authorization, OES and Spinnaker can be configured to use any third party authentication service like LDAP, OpenLDAP, OAuth etc. OES helm package includes OpenLDAP that contains the following users and groups:</p>
+<p><em>ID: admin / Password: opsmxadmin123 (Belongs to all groups)</em></p>
+<p><em>ID: user1 / Password: user1password (Belongs to “developers” group)</em></p>
+<p><em>ID: user2 / Password: user2password (Belongs to “qa” group)</em></p>
+<p><em>ID: user3 / Password: user3password (Belongs to both developers and qa groups)</em></p>
+<p><code>Values.yaml: global.installOpenldap: true</code></p>
+<p>Files: charts/openldap/templates</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>
+<p>Default settings in “standard-gitops” repo are for authentication enabled but authorization is disabled. If you want to enable, please do check ‘fiat’ param in the “oes-gate” config as well.</p>
+</li>
+<li>
+<p>“global.ldap.enabled=true” is independent of openLDAP. That means, the users are free to use other LDAP.</p>
+</li>
+</ul>
+</div>
+<h3 id="open-policy-agent-opa"><strong>Open Policy Agent (OPA)</strong></h3>
+<p>OES supports enforcing “policy”. A policy is an execution condition, a simple policy might be “don’t allow deployment on weekends”. There are two kinds of policies: Static and Runtime. 
+This is how it works in OES. </p>
+<p><strong>Static Policy</strong></p>
+<p>front50 has a web-hook configured that is called before a pipeline is saved. 
+The configuration is in “.hal/defaults/profile/front50-local.yml”. You can see it in the standard-gitops repo “default/profiles/front50-local.yml”, policy.opa.enabled and URL that points to “OES-Sapor”.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>
+<p>It is always possible to disable the policy enforcement using policy.opa,enabled: false.</p>
+</li>
+<li>
+<p>If OES is installed in a different namespace or a different cluster, this URL needs to be updated to route it correctly to OES-Sapor.</p>
+</li>
+<li>
+<p>OpsMx front50 image is required for this functionality, hence this feature doesn’t work with Open Source Spinnaker</p>
+</li>
+</ul>
+</div>
+<p><strong>Runtime Policy</strong></p>
+<p>Runtime policy is enforced by adding a “policy” stage in the pipeline through the OES-UI</p>
+<p><strong>Execution</strong></p>
+<p>In both these cases, an API call comes to SAPOR which in turns makes a call the configured OPA server. For providing this functionality, an OPA server is required. An OPA server is installed by default in the chart, which installing OES.</p>
+<p><code>Values.yaml: opa.enabled: true</code> (Enabled by default)</p>
+<p>Files: <code>templates/deployments/opa-deployment.yaml and templates/configmaps/opa-persists,yaml</code></p>
+<p><strong>Note</strong>: OPA server is required and expected by the install. If required, it can be disabled later. Customer’s OPA server, if any, can be configured in addition to this OPA-server.</p>
+<h3 id="create-controller-secrets-agent-configuration"><strong>Create-controller-secrets (Agent Configuration)</strong></h3>
+<p>OES supports Spinnaker deployment via an “Agent” that is installed in a remote cluster with no inbound network access (of course, outbound is required). </p>
+<p>Controller and Agent talk to each other and everyone through custom self-signed certificates that need to be made available to all parties. To this end, a custom job “create-controller-secrets” is executed at the start of the installation. It only needs to be executed once (unless the created secrets are deleted). It creates the following: </p>
+<ol>
+<li>
+<p><strong>ca-secret:</strong> This is the self-signed CA and its key. This is mounted as a volume in the controller so that it can generate all the required certificates.</p>
+</li>
+<li>
+<p><strong>oes-control-secret:</strong> This contains the CA and x509 certs required for SAPOR to talk to the controller. From OES-UI, when we add an agent, SAPOR talks to the controller to generate the required configuration content.</p>
+</li>
+<li>
+<p><strong>Jwt-secret:</strong> Used by the controller</p>
+</li>
+<li>
+<p><strong>oes-cacerts:</strong> This contains the JAVA key-store “cacerts” that has the self-signed CA added to it. This is mounted on Igor (for remote jenkins), etc. It can be mounted in any of the pods that need to access any extra certificates.</p>
+</li>
+</ol>
+<p>The “create-controller-secrets” custom job allows for the following (both being optional):</p>
+<ul>
+<li>
+<p>Provide your own base “cacerts”: If a customer has 10-20 CAs that need to be added, we could use java ‘key-tool’ to add all of them and provide that “cacerts” as the base to which the controller CA is added.</p>
+</li>
+<li>
+<p>Provide your CAs: If a customer wants their own CA to be added, this can optionally be provided. It is added into the base “cacerts” that are already baked into the image.</p>
+</li>
+</ul>
+<p><code>values.yaml: forwarder.enabled: true</code> (If false, remove mounts in default/service-settings.)
+Files: <code>templates/forwarder</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>
+<p>It is OK to rerun this job by deleting all the secrets created by it. This may be required, for example, to add another CA. However, ensure that SAPOR controller and any pods mounting “oes-cacerts” are restarted. All agent manifests should be deleted, re-created via the OES-UI and re-applied in the remote clusters.</p>
+</li>
+<li>
+<p>Only to rename the “controller-agent-grpc” endpoint, rerunning this job is NOT required. Simply update the controller configMap and restart the controller. The controller creates its own certs based on the “ca-secret” contents. As it recreates it every time on start-up, running this job is not required. Do download the agent manifests afresh. </p>
+</li>
+</ul>
+</div>
+<h3 id="chart-custom-ca"><strong>Chart-Custom CA</strong></h3>
+<p>OES Helm chart fully supports the use of a custom CA (Certificate Authority). This is done in two parts: </p>
+<ol>
+<li>
+<p>The “create-controller-secrets” job allows you to include a CA in “oes-cacerts” secret. Ensure that custom CA is part of “oes-cacerts”.</p>
+</li>
+<li>
+<p>This secret is mounted in all the pods, both in OES and Spinnaker. In OES it is mounted by specifying the flag in “<em>values.yaml</em>” and in Spinnaker is mounted by adding entries to “<em>.hal/default/service-settings/</em>.yml*” files</p>
+<p><code>values.yaml: global.customCerts.enabled: true</code> (Default is false)
+<code>global.customCerts.secretName</code> (DO NOT CHANGE)
+Files: <code>standard-gitops repo, default/service-settings/*.yml.</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To test this, access the resources and look for SSL exceptions in pod-logs.</p>
+</div>
+</li>
+</ol>
+<h3 id="chart-airgapped-install"><strong>Chart-Airgapped Install</strong></h3>
+<p>OES Helm chart fully supports installing in an airgapped environment. This is done in the following way:</p>
+<ol>
+<li>
+<p>Obtain all docker images required and upload to local image repository </p>
+</li>
+<li>
+<p>In “values.yaml”, update global.customImage.registry as appropriate </p>
+</li>
+<li>
+<p>Use the “opsmx/airgap-repo” instead of the “standard-gitops” repo. </p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>
+<p>The repo contains “.boms” folder that may not be listed with ls command.</p>
+</li>
+<li>
+<p>Images repo locations need to be updated as appropriate</p>
+</li>
+</ul>
+</div>
+<p>In addition, OES uses “plugin-framework” for adding functionality to Spinnaker. Spinnaker natively supports PF4J that requires downloading files from an unauthenticated git repository. If an unauthenticated git repository is available within the airgapped environment:</p>
+<ul>
+<li>
+<p>Update “<em>spinnaker.extensibility.repositories.url</em>” in the “oes-gate” configmap to point to a repo that is reachable by Spinnaker. Copy the contents from the opsmx repo into the local repo.</p>
+</li>
+<li>
+<p>Update the same parameter in “<em>orca-local.yml</em>” (in .hal/defaults/profile)</p>
+</li>
+</ul>
+<h3 id="halyard-gitops"><strong>Halyard GitOps</strong></h3>
+<p>This section describes the basics of how the gitOps works and the various players in the process.</p>
+<p>There is a repo (github repo for this document, but could be S3, bitbucket, etc), typically copied from “<em>github.com/opsmx/standard-gitops repo</em>” This repo contains files that are used by Spinnaker Halyard. All the contents of “<em>/home/spinnaker/.hal</em>” inside the halyard pod are placed there by pulling them from the repo and editing them to replace certain values.</p>
+<p>OES updates the spinnaker configuration by writing to this repo. Spinnaker configuration is updated by restarting the halyard pod.</p>
+<p>This process is enabled by multiple “<em>init</em>” containers that run before the main halyard container.</p>
+<p><code>values.yaml: spinnaker.gitOpsHalyard.*</code></p>
+<p><code>Spinnaker.spinCli.*</code></p>
+<p>Files: <code>charts/spinnaker/templates &amp; charts/spinnaker/config</code></p>
+<h3 id="container-create-halyard-local"><strong>Container: create-halyard-local</strong></h3>
+<p>This is the first container that executes the “init.sh” script that is located in the "*-opsmx-spinnaker-halyard-init-script” configMap. Note that the script gets modified based on the repo-type during the installation process. 
+Here is a high-level description of the script:</p>
+<ol>
+<li>
+<p>Clone the “git-repo”</p>
+</li>
+<li>
+<p>Replace “SPINNAKER_NAMESPACE” string in “.hal/config, default/profiles/fiat-local.yml”, “orca-local.yml” (custom jobs)</p>
+</li>
+<li>
+<p>Replace “RELEASE_NAME” string in “.hal/config, redis.yml” in “default/service-settings”</p>
+</li>
+<li>
+<p>Replaces “GIT_TOKEN”, “GIT_USER” and “DYNAMIC_ACCNT_CONFIG” in “default/profiles/spinnakerconfig.yml”</p>
+</li>
+</ol>
+<h3 id="container-halyardconfig-update"><strong>Container: halyardconfig-update</strong></h3>
+<p>As we use git-repo for halyard configuration, secrets used by halyard (for example, account passwords) could be exposed to anyone who has git-repo access. </p>
+<p>OES chart supports using Kubernetes secrets in halyard configuration. The procedure is as follows: </p>
+<ol>
+<li>
+<p>Manually create a Kubernetes secret with a key and password in the spinnaker namespace. Create it as:</p>
+<p><code>K create secret generic  --from-literal =MYSECRET</code></p>
+</li>
+<li>
+<p>In the “<em>git-repo</em>”, refer to it as <code>encrypted::</code> in the files where it is used</p>
+</li>
+<li>
+<p>If need to encrypt a File, create the secret and refer to it as <code>encryptedFile::</code> Create it as, <code>k create secret generic SECRETNAME --from-file</code></p>
+</li>
+</ol>
+<p>This init container runs the “run.sh” script in -opsmx-spinnaker-spin-secret-decoder configMap that searches and replaces all values as appropriate.</p>
+<h3 id="container-halyard-overrideurl"><strong>Container: halyard-overrideurl</strong></h3>
+<p>OES requires 3 (max 5 including controller) end-points that need to be reachable from the web-browser. These are:</p>
+<ul>
+<li>
+<p>oes-ui</p>
+</li>
+<li>
+<p>oes-gate</p>
+</li>
+<li>
+<p>Spin-deck</p>
+</li>
+<li>
+<p>spin-gate (only if NOT using the common-gate, usually not required)</p>
+</li>
+<li>
+<p>"agent-grpc" service of the controller (if configuring agent/controller)</p>
+</li>
+</ul>
+<p>Routing Web-URLs to OES and Spinnaker pods requires multiple configurations depending on the following URLs type:</p>
+<ol>
+<li>
+<p>Ingress: In this model there is one loadbalancer/IP that routes traffic to an ingress controller (e.g. nginx). The ingress controller looks at the URL string (example, spin.saas.opsmx.com or oes.saas.opsmx.com) and based on this string routes the traffic to the appropriate pod. Note that for this to work, DNS (example, www.godaddy.com) is a critical requirement as IP address needs to be translated to URLs.</p>
+</li>
+<li>
+<p>Load Balancers: Most cloud providers have automatic load balancer provisioning. This allows for any service to have an external IP and traffic is directly routed to the appropriate service or pod. In addition, we can still use the DNS to reach the LB.</p>
+</li>
+<li>
+<p>Node Port: In case load balancer is not available, Kubernetes allows IP address of any of the worker nodes to be used with a “node port” (instead of the service-port) to route the traffic to pods</p>
+</li>
+</ol>
+<p><strong>HTTP or HTTPS</strong></p>
+<p>If using HTTPS, additional complexity comes in the form TLS certificates and termination.</p>
+<ol>
+<li>
+<p><strong>Ingress:</strong> In most cases, ingress will allow for TLS termination. Coupled with cert-manager+ACME, automatic certificates can be generated. Default OES installation assumes “nginx” and “cert-manager”.</p>
+<ul>
+<li>
+<p>If using custom-certificates, these need to be generated and provided to ingress controller for TLS termination. This is easily done by create the TLS secrets mentioned in the default ingress objects created (kubectl get ing)</p>
+</li>
+<li>
+<p>If using any other ingress (other than nginx), the ingress object configuration has to be changed accordingly.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Load Balancers:</strong> Most cloud providers provide options for TLS termination at the Load Balancer. If this option is chosen (makes sense only if DNS is in place), the certificates need to be loaded to the cloud provider for TLS termination.</p>
+</li>
+<li>
+<p><strong>Node Port:</strong> In this case, it is assumed that we are in development mode and HTTPS is not supported.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>values.yaml: global.spinDeck.host, oesUI.host, oesGate.host, spinGate.host, protocol k8sServiceType: ClusterIP or LoadBalancer
+</code></pre></div>
+<p>This init container runs the “call_overrides.sh” script in *-opsmx-spinnaker-halyard-overrideurl configMap. This is designed to support 3 situations:</p>
+<ul>
+<li>
+<p>Gate and deck use ingress and URLs are provided and gitops is in use. In this case, the hal/config overrideUrls are edited to appropriate values.</p>
+</li>
+<li>
+<p>No URLs are provided, load-balancer IP is used for figuring out the URLs for gate and deck.</p>
+</li>
+<li>
+<p>No URLs are provided and there is no external IP for the load-balancer after waiting for 5 minutes. In this case, Node IP with node-ports is used for configuring the gate and deck URLs.</p>
+</li>
+</ul>
+<h3 id="container-halyard"><strong>Container: halyard</strong></h3>
+<p>This is the main halyard container that runs the halyard executable. There is a postStart lifecycle hook that waits for the halyard process to be ready and then executes “<em>hal deploy apply</em>”.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>
+<p>If you see any errors, check the logs of the “create-halyard-local container”. In most cases, it is unable to fetch the repo because the git-token may be incorrect or has expired.</p>
+</li>
+<li>
+<p>If the halyard pod stays hung in “podInitializing” state for more than 5 minutes, it means that the halyard daemon process is unable to start. The issue here is most likely related to “halyard-local.yml” file in the “standard-gitops repo”. Easiest way to debug is to remove the “poststart” lifecycle hook and check the container logs, “exec” into the container and execute “hal-deploy-apply” manually.</p>
+</li>
+<li>
+<p>If we see “decryption” errors in “hal-deploy-apply”, most likely the cause is the mismatch between SAPOR encryption and halyard decryption. SAPOR encrypt key can be found in bootstrap secret and oes-sapor-config CM. Halyard decrypt key is found in .hal/default/profiles/spinnakerconfig.yml</p>
+</li>
+</ul>
+</div>
+<h3 id="install-using-hal"><strong>Install-using-hal</strong></h3>
+<p>This is the primary installer in the Spinnaker helm-chart. This has been modified to add a container.</p>
+<p><code>values.yaml: spinnaker.spinCli.*</code></p>
+<p>Files: <code>charts/spinnaker/templates/hooks/install-using-hal.yaml &amp; charts/spinnaker/templates/secrets/spin-config.yaml</code></p>
+<h3 id="sample-pipeline-install"><strong>sample-pipeline-install</strong></h3>
+<p>This creates the following applications in Spinnaker,  </p>
+<ol>
+<li>
+<p>“Opsmx-gitops” application in spinnaker is needed for “Restart Spinnaker” in OES UI to work. It also contains the “syncToGit” and “syncToSpinnaker” pipeline promotion pipelines for backing up Spinnaker applications.</p>
+</li>
+<li>
+<p>“sampleapp” application contains a few sample pipelines to demonstrate spinnaker functionality and also act as a quick reference.</p>
+</li>
+</ol>
+<p>This container (not an init container) executes the “spin-pipeline-import.sh” script that:</p>
+<ul>
+<li>
+<p>Waits for all spinnaker services to be up.</p>
+</li>
+<li>
+<p>Clones the sample pipeline repo at “<a href="https://github.com/OpsMx/sample-pipelines.git">https://github.com/OpsMx/sample-pipelines.git</a>”.</p>
+</li>
+<li>
+<p>Executes “spin-cli” commands to push sample pipelines into Spinnaker. For this it needs the gate-API url, username and password that is taken from a secret created from values.yaml, spinnaker.spinCli section.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>
+<p>This step is mandatory. Opsmx-gitops application is needed for restart functionality to work.</p>
+</li>
+<li>
+<p>If <em>sampleapp</em> is not there in spinnaker after install, check the logs of this container.</p>
+</li>
+</ul>
+</div>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../ISD%20Installation%20Configuration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ISD Installation Configuration" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              ISD Installation Configuration
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ISD%20Installation%20on%20OpenShift/" class="md-footer__link md-footer__link--next" aria-label="Next: ISD Installation on OpenShift" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              ISD Installation on OpenShift
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2022 All Rights Reserved <script>document.write</script>
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/ops_mx" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/OpsMxInc/" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/opsmx/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/channel/UCFIqwYzo-2LGShQCVFy9LWg" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="../javascripts/feedback.js"></script>
+      
+    
+  </body>
+</html>
