@@ -68,6 +68,16 @@ nav:
        - Lock Pipeline.md
        - View and Restore Pipeline.md
        - Approval Gate.md
+       - Add Verification Gate.md
+       - Add Test Verification Gate.md
+       - Add Policy Gate.md
+       - Deployment to Kubernetes namespace with Manifest file.md
+       - Deployment to Kubernetes namespace with Git based Manifest.md
+       - Manual Approval before deployment.md
+       - Blue-Green deployment using Manifest.md
+       - Helm based deployment to Kubernetes namespace.md
+       - Integrations.md
+       - Available Integrations.md
 
 extra:
   social:
@@ -104,7 +114,7 @@ extra:
           data: 0
           note: >- 
             Thanks for your feedback! Help us improve this page by
-            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            using our <a href="https://docs.google.com/forms/d/e/1FAIpQLSeW6eQR8xwAXddhnrIgLwToHyV305wHLaTtmP1zxygXYYmx7A/viewform?vc=0&c=0&w=1&flr=0" target="_blank" rel="noopener">Customer Feedback</a>.
 
 
   version:
